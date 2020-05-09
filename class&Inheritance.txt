@@ -1,0 +1,40 @@
+class User{
+    constructor(userName){
+        //class properties
+        this.userName = userName;
+    }
+
+    //class methods
+    login(){
+        console.log(`${this.userName} has logged in.`);
+        return this; //returns the object so you can chain methods
+    }
+
+    logout(){
+        console.log(`${this.userName} has logged out.`);
+        return this; //returns the object so you can chain methods
+    }
+}
+
+class Admin extends User{
+    constructor(userName, role){
+        super(userName); //call and initialize the parent class properties
+        this.role = role;
+    }
+
+    deleteUser(user){
+        console.log(`${user} has been deleted by the admin ${this.userName} the ${this.role}!`);
+        return this; //returns the object so you can chain methods
+    }
+}
+
+var User1 = new User("Demida");
+var User2 = new User("Samuel");
+var User3 = new Admin("Thomas", "Terminator");
+
+User3.deleteUser("Demida");
+
+//method chaining
+User1.login().logout();
+User2.login().logout();
+User3.login().logout().deleteUser("Demida");

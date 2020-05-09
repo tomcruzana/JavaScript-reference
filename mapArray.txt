@@ -1,0 +1,22 @@
+/* Per the official ECMAScript specification for Array.map, 
+the callback provided to the map function takes three parameters: 
+the current value in the iteration loop, the index of that value, and the array.
+
+The map array method creates a new array populated with the results of calling a provided function on every element in the calling array. 
+
+Kung ang callback function ng map ay imultiply bawat elements, yun ang gagawin nya at rereturn nya ito in a form of new array!!!
+
+good reads: 
+https://dev.to/captainsafia/everything-you-needed-to-know-and-more-about-array-map-4a9b
+https://dev.to/davidgeorgebell/a-quick-look-at-the-map-method-in-javascript-3nd
+*/
+
+const nums = [2,3,5,6];
+
+let multipliedByTwo = nums.map(function(value, index, array){
+    return `new value: ${value * 2} 
+    index: ${index} //you dont often need this
+    array: ${array}`; //you dont often need this
+});
+
+console.log(multipliedByTwo);

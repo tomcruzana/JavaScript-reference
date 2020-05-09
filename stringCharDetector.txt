@@ -1,0 +1,54 @@
+html
+
+    <p>lorem error</p>
+    <p>lorem neutral</p>
+    <p>lorem success</p>
+    <p>lorem success</p>
+    <p>lorem error</p>
+    <p>lorem neutral</p>
+    <p>lorem success</p>
+    <p>lorem error</p>
+    <p>lorem error</p>
+    <p>lorem neutral</p>
+
+css
+.error {
+    background-color: red;
+    text-align: center;
+    padding: 2em;
+}
+
+.success {
+    background-color: cyan;
+    text-align: center;
+    padding: 2em;
+}
+
+.nuetral {
+    background-color: white;
+    text-align: center;
+    padding: 2em;
+    color: black;
+}
+
+js
+let q = document.querySelectorAll('p'); //gets all the p tags and returns a nodelist
+
+
+function detectSuccessOrError(){
+    q.forEach(function(e){ //iterates through the node list
+        
+        if (e.textContent.includes("success")){ //if element contains the specified word, add a class or any condition
+            e.classList.add("success");
+        }
+        else if  (e.textContent.includes("error")){
+            e.classList.add("error");
+        }
+        else {
+            e.classList.add("nuetral");
+        }
+    });
+}
+
+detectSuccessOrError();
+console.log(q);

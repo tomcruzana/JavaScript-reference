@@ -1,0 +1,23 @@
+/*
+The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+
+Your reducer function's returned value is assigned to the accumulator, 
+whose value is remembered across each iteration throughout the array, 
+and ultimately becomes the final, single resulting value.
+
+src: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+*/
+
+const array = [2,3,4,5,22,77];
+
+const sumOfArray = array.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue; //the accumulator is the total
+});
+
+console.log(sumOfArray); //113
+
+const sumOfArray2 = array.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue; //the accumulator is the total
+}, 100); //initial value of 100 (2nd parameter)
+
+console.log(sumOfArray2); //with an initial value argument213

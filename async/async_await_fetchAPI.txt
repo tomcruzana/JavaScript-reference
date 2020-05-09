@@ -1,0 +1,23 @@
+/*
+async - if there's an async keyword, it becomes a Promise 
+await - stalls JS in a non-blocking process until the promise is resolved
+
+The then() method returns a Promise. It takes up to two arguments: callback functions for the success and failure cases of the Promise.
+*/
+
+//nonblocking function
+
+const getPersonInfo = async () => {
+    const response = await fetch("Thomas.json"); //fetch promise
+
+    if (response.status !== 200) { //defining an error handler since the response will always resolve a promise even if its address to JSON is incorrect
+        throw new Error("Error fetching data");
+    }
+
+    const data = await response.json(); //get the json data
+    return data //return the json data
+};
+
+getPersonInfo()
+    .then(data => console.log(data)) 
+    .catch(err => console.log(err.message));

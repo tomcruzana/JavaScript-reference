@@ -1,0 +1,8 @@
+-This boilerplate is good for bigger projects
+-webpack bundles js modules
+-babel takes care of cross-browser js compatibility
+
+commands
+npm install //install all dependencies and node modules
+npm run serve //run webpack live server
+npm run build //bundle code to the dist folder 

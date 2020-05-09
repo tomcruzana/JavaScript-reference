@@ -1,0 +1,42 @@
+//The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+//Syntax: let newArray = arr.filter(callback(element[, index, [array]])[, thisArg])
+
+//Example number 1
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const filteredWords = words.filter(function(e){
+    return e.length > 6;
+});
+
+console.log(filteredWords); //"exuberant", "destruction", "present"
+
+//Example number 2
+const users = [
+    {name: "Sam", type: "premium"},
+    {name: "Tom", type: "free"},
+    {name: "Janeth", type: "premium"},
+    {name: "Roy", type: "premium"},
+    {name: "Harold", type: "free"},
+    {name: "Jenny", type: "free"}
+];
+
+const filterUserTypes = users.filter(function(user){
+    return user.type == "premium";
+});
+
+console.log(filterUserTypes); //Sam, Janeth, Roy
+
+//Example number 3
+const covidCases = [
+    {country: "PH", cases: 3000, deaths: 300},
+    {country: "USA", cases: 300000, deaths: 176000},
+    {country: "Italy", cases: 10000, deaths: 9000},
+    {country: "Japan", cases: 500, deaths: 300},
+    {country: "Thailand", cases: 800, deaths: 458}
+]
+
+const filterCovidDeaths = covidCases.filter(function(deaths){
+    return deaths.deaths > 1000;
+});
+
+console.log(filterCovidDeaths); //USA, Italy

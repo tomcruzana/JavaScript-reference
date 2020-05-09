@@ -1,0 +1,26 @@
+HTML
+    <div class="food-ingredients">
+
+    </div>
+
+    <div class="food-steps">
+
+    </div>
+
+JS
+const getFoodIngredients = document.querySelector(".food-ingredients");
+const getFoodSteps = document.querySelector(".food-steps");
+
+let food = {
+    ingredients : ["tuna", "tomato", "bread"],
+    steps : ["wash", "dry", "fold"]
+}
+
+
+for (let i = 0; i < food.ingredients.length; i++) {
+    getFoodIngredients.innerHTML += `<p> ${food.ingredients[i]} </p>`;
+}
+
+for (let i = 0; i < food.ingredients.length; i++) {
+    getFoodSteps.innerHTML += `<p> ${food.steps[i]} </p>`;
+}

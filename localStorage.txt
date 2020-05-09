@@ -1,0 +1,19 @@
+/*
+    The localStorage object resides in the Window global object. 
+    You may eliminate the Window. prefix since the browser uses the Window ibj by default
+    All data in the localStorage are converted to String
+    
+    docs:https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+*/
+
+//set/update items
+localStorage.setItem("name", "Thomas");
+localStorage.setItem("age", 29);
+
+//get items
+let name = localStorage.getItem("name");
+let age = localStorage.getItem("age");
+
+//delete item
+localStorage.removeItem("name");
+localStorage.removeItem("age");

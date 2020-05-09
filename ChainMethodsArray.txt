@@ -1,0 +1,7 @@
+//In this example, we will chain a couple of array methods. You may chain more methods as you wish
+const todo = "sample string";
+
+function filterTodos(term){
+    Array.from(list.children) //convert HTML collection to array list
+        .filter( todo => !todo.textContent.toLowerCase().includes(term) )
+        .forEach( todo => todo.classList.add("hide") );

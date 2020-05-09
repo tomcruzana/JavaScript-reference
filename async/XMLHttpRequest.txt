@@ -1,0 +1,18 @@
+//READY STATE: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+//STATUS CODES: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+//const para = document.querySelector("p");
+
+const request = new XMLHttpRequest(); //request object
+request.addEventListener("readystatechange", ()=>{
+    //console.log(request, request.readyState);
+    if (request.readyState === 4 && request.status === 200) { //4 is DONE, 200 is OK
+        console.log(request, request.responseText);
+        //para.innerHTML = request.responseText;
+    }
+    else if(request.readyState === 4){
+        console.log("error fetching data");
+    }
+});
+request.open("GET", "https://jsonplaceholder.typicode.com/todoss/1"); //params: HTTP request and API end point
+request.send(); //send the request

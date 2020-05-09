@@ -1,0 +1,6 @@
+const score = [102, 5, 0, 40, 88, 101, 123, 555];
+
+//this code will return the first element in the array that fulfills the condition
+const findFirstHighScore = score.find(e => e > 100); //first array element that's higher than 100
+
+console.log(findFirstHighScore);

@@ -1,0 +1,16 @@
+const TwoDarray = [
+    [1,3,4,5], 
+    [3,5,12,3]
+];
+
+document.write(TwoDarray[0].length + " elements--"); //understand that this is the length of the 1st row, which is the first index
+document.write(TwoDarray[1].length + " elements--"); //understand that this is the length of the 2nd row, which is the second index
+
+for (let row = 0; row < TwoDarray.length; row++) { //TwoDarray[0] since row is = 0
+	document.write(TwoDarray[row].length + " elements--");
+    for (let col = 0; col < TwoDarray[row].length; col++) { //TwoDarray[1] since row will be = 1 in the second iteration
+        document.write(TwoDarray[row][col] + " ");
+    }  
+    document.write("<br>"); 
+}
+

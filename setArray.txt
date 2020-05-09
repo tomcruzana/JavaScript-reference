@@ -1,0 +1,7 @@
+/*
+For all you ES6 fans out there, we can create a new array containing only the unique values by using the Set object with the Spread operator.
+*/
+
+const my_array = [1, 2, 2, 3, 3, 4, 5, 5]
+const unique_array = [...new Set(my_array)];
+console.log(unique_array); // [1, 2, 3, 4, 5]

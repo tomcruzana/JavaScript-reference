@@ -1,0 +1,18 @@
+/*timestamp algorithm
+    This is useful let's say you have a blog that was published on a certain date, for instance
+    Feb 20, 2020. We can use the formatted date object to create a dynamic date counter.
+*/
+
+const dateCreated = new Date("February 20 2020 12:00:00");
+const dateNow = new Date();
+
+const difference = dateNow.getTime() - dateCreated.getTime(); //get the milliseconds
+console.log(difference);
+
+//algorithm
+const mins = Math.round(difference / 1000 / 60); //get the minutes
+const hours = Math.round(mins / 60); //get the hours
+const days = Math.round(hours / 24); //get the days
+console.log(mins, hours, days);
+
+console.log(`The blog was created ${days} ago!`);

@@ -1,0 +1,41 @@
+//READY STATE: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+//STATUS CODES: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+const getTodos = (resource, callback) => {  //added a resource string paramater
+    const request = new XMLHttpRequest(); //request object
+    request.addEventListener("readystatechange", ()=>{
+        
+        if (request.readyState === 4 && request.status === 200) { //4 is DONE, 200 is OK
+            const data = JSON.parse(request.responseText); //parse json data
+            callback(undefined, data); //invoke the cb function version 1
+        }
+        else if(request.readyState === 4){
+            callback("Error fetching data", undefined); //invoke the cb function version 2
+        }
+    });
+
+    //The get request could come from a local file too (JSON, XML, etc)
+    request.open("GET", resource); //params: HTTP request and API end point which could be JSON, XML, plain text, etc.
+    request.send(); //send the request
+};
+
+//invoke callback hell version (it works, but we are cb within cb, within cb)
+getTodos("Samuel.json", (err, data)=>{
+    console.log('call back fired!');
+    if (err) {
+        console.log(err);
+    } 
+    else {
+        console.log(data);
+    }
+
+        getTodos("Thomas.json", (err, data)=>{
+            console.log('call back fired!');
+            if (err) {
+                console.log(err);
+            } 
+            else {
+                console.log(data);
+            } 
+        });
+});

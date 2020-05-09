@@ -1,0 +1,21 @@
+//date and times
+const now = new Date();
+console.log(now);
+
+//year, month, day, times
+let dateMethods = [
+    now.getFullYear(),
+    now.getMonth(), //0 based 0-11
+    now.getDate(),
+    now.getDay(),
+    now.getHours(),
+    now.getMinutes(),
+    now.getSeconds(),
+    now.getTime(), //gets the time starting from jan 1, 1970
+    now.toDateString(),
+    now.toTimeString(),
+    now.toLocaleString()
+];
+
+dateMethods.forEach(e => console.log(e));
+

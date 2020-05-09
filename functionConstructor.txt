@@ -1,0 +1,49 @@
+//This is the old way, and what happens here is what transpires under the hood of classes
+
+//parent constructor function
+function Duck(type, name){
+    this.type = type; //add properties
+    this.name = name;
+
+    // It's a bad idea to declare methods here because it doesn't go to the proto.
+    // Prototype is were you store the object properties
+}
+
+//adding methods via prototype
+Duck.prototype.print = function(){
+    console.log(`${this.name} is a type of a ${this.type} ducky!`)
+    return this; //allows method chaining
+};
+
+Duck.prototype.exit = function(){
+    console.log(`${this.name} has exit the event horizon!`)
+    return this; //allows method chaining
+};
+
+
+
+//child constructor function
+function AdminDuck(type, name, weapon){
+    Duck.call(this, type, name); // call the parent constructor
+    this.weapon = weapon; //add new properties
+}
+
+AdminDuck.prototype = Object.create(Duck.prototype); // inherit the prototype of parent
+
+AdminDuck.prototype.attack = function(){ //add a new method
+    console.log(`${this.name} attacked with ${this.weapon} weapon!`);
+    return this; //allows method chaining
+};
+
+
+//instances
+const Duck1 = new Duck("rubber", "rimmy");
+Duck1.print().exit();
+
+const Duck2 = new Duck("flying", "ricardo");
+Duck2.print().exit();
+
+const Duck3 = new AdminDuck("robot", "tommy", "laser");
+Duck3.print().attack().exit();
+
+

@@ -1,0 +1,69 @@
+HTML
+    <form class="signup-form">
+        <input type="text" id="username" placeholder="username">
+        <input type="submit" value="submit">
+        <div class="feedback"></div>
+    </form>
+
+CSS
+body{
+    background: #eee;
+}
+
+form{
+    max-width: 200px;
+    margin: 40px auto;
+    background: white;
+    padding: 10px;
+}
+
+input{
+    display: block;
+    margin: 10px auto;
+    padding: 4px;
+}
+
+.success{
+    color: yellowgreen;
+}
+
+.error{
+    color: red;
+}
+
+JS
+const form = document.querySelector(".signup-form");
+const feedback = document.querySelector(".feedback");
+
+
+
+form.addEventListener("submit", function(e){
+    e.preventDefault(); //prevents the default action of the submit button which is refreshing the page
+
+    //validation
+    const username = form.username.value //store username value
+    const usernamePattern = /^[a-zA-Z]{6,12}$/; //regex validation
+
+    if(usernamePattern.test(username)){
+        feedback.style.color = "black";
+        feedback.textContent = "That username is valid!"
+        console.log(form.username.value); //submit data
+    }
+    else{
+        feedback.style.color = "red";
+        feedback.textContent = "username must contain letters only and be between 6 & 12 charaters long!";
+    }
+
+    form.username.value=""; //clear (Note that the dot notation works on forms)
+    form.username.focus(); //focus 
+});
+
+//real time validation
+form.username.addEventListener("keyup", function(e){
+    if(usernamePattern.test(e.target.value)){
+        form.username.setAttribute("class", "success");
+    }
+    else{
+        form.username.setAttribute("class", "error");
+    }
+});

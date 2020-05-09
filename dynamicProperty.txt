@@ -1,0 +1,10 @@
+//You can assign a dynamic property before declaring the object.
+
+const dynamic = 'color';
+var item = {
+    brand: 'Ford',
+    [dynamic]: 'Blue'
+}
+console.log(item); 
+console.log(item.color); //notice that property name. If you use item.dynamic, you'll get an undefined value.
+// { brand: "Ford", color: "Blue" }

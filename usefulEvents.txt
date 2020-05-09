@@ -1,0 +1,27 @@
+//USEFUL EVENTS
+//more here: https://developer.mozilla.org/en-US/docs/Web/Events
+
+//The copy event fires when the user initiates a copy action through the browser's user interface.
+
+const copy = document.querySelector(".copy");
+
+copy.addEventListener("copy", function(event){
+    const selection = document.getSelection();
+    event.clipboardData.setData('text/plain', selection.toString().toUpperCase() + "\nCreated by Tom");
+    event.preventDefault();
+});
+
+//The mousemove event is fired at an element when a pointing device (usually a mouse) is moved while the cursor's hotspot is inside it.
+
+const mousemove = document.querySelector(".box");
+
+mousemove.addEventListener("mousemove", function(e){
+    const coordinates = document.querySelector(".box p");
+    coordinates.textContent = "x" + e.offsetX + ", y" + e.offsetY;
+});
+
+//The wheel event fires when the user rotates a wheel button on a pointing device (typically a mouse).
+
+document.addEventListener("wheel", function(e){
+    console.log(e.pageX, e.pageY);
+});

@@ -1,0 +1,43 @@
+//READY STATE: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+//STATUS CODES: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+const getTodos = (resource) => {  //added a resource string paramater
+
+    return new Promise((resolve, reject) => { //Promise
+        const request = new XMLHttpRequest(); //request object
+        request.addEventListener("readystatechange", ()=>{
+            
+            if (request.readyState === 4 && request.status === 200) { //4 is DONE, 200 is OK
+                const data = JSON.parse(request.responseText); //parse json data
+                resolve(data);
+            }
+            else if(request.readyState === 4){
+                reject("Error fetching data!");
+            }
+        });
+
+        //The get request could come from a local file too (JSON, XML, etc)
+        request.open("GET", resource); //params: HTTP request and API end point which could be JSON, XML, plain text, etc.
+        request.send(); //send the request
+    });
+};
+
+//single promise
+// getTodos("Thomas.json").then((data)=>{
+//     console.log("promise resolved:", data);
+// }).catch((err)=>{
+//     console.log("promise rejected:", err);
+// });
+
+//chaining promises
+getTodos("Thomas.json").then((data)=>{
+    console.log("promise 1 resolved:", data);
+    return getTodos("Samuel.json"); //add a return cb with promise
+}).then((data)=>{ //add the then method to chain the promises
+    console.log("promise 2 resolved:", data);
+    return getTodos("Janeth.json");
+}).then((data)=>{ //add the then method to chain the promises
+    console.log("promise 3 resolved:", data);
+}).catch((err)=>{
+    console.log("promise rejected:", err);
+});

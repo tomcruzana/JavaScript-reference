@@ -1,0 +1,60 @@
+CALL
+The call() method is a predefined JavaScript method.
+
+It can be used to invoke (call) a method with an owner object as an argument (parameter).
+
+With call(), an object can use a method belonging to another object.
+
+//call is method borrowing
+var tom = {
+name: "Tom",
+age: 29,
+job: "ServiceNow Developer",
+
+presentation: function(style, timeOfDay){
+	if (style === "formal"){
+	console.log("Good " + timeOfDay + " ladies and gentemen! " 
+	+ " I'm " + this.name + ", I'm a " + this.job + ", and I'm " +
+	this.age + " years old.\n");
+	}
+	else if(style === "friendly"){
+	console.log("Hey there! Good " + timeOfDay + " mofos! " 
+	+ " I'm " + this.name + ", I'm a " + this.job + ", and I'm " +
+	this.age + " years old.\n");
+	}
+	}
+};
+
+var sam = {
+	name: "Sam",
+	age: 30,
+	job: "Trucker"
+};
+
+tom.presentation("formal", "afternoon");
+tom.presentation("friendly", "afternoon");
+
+//call a.k.a method borrowing
+tom.presentation.call(sam, "formal","morning");
+tom.presentation.call(sam, "friendly","morning")
+
+
+Read mote about call: https://www.w3schools.com/js/js_function_call.asp
+
+APPLY
+var x = tom.presentation.apply(sam, ["formal","day"]);
+
+The Difference Between call() and apply()
+The difference is:
+The call() method takes arguments separately.
+The apply() method takes arguments as an array.
+The apply() method is very handy if you want to use an array instead of an argument list.
+
+Side note: use null for the this parameter if it doesn't belong to an object.
+
+BIND
+The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+
+//bind a.k.a creating a custom method from the base method
+var samFriendly = tom.presentation.bind(sam, "formal");
+samFriendly("Evening");

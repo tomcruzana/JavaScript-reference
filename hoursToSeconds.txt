@@ -1,0 +1,6 @@
+function howManySeconds(hours) {
+	return hours * 3600;
+}
+
+//there are 3600 seconds in an hour
+//there are 60 minutes in an hour

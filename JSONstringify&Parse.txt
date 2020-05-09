@@ -1,0 +1,15 @@
+//JS array of objects
+const groceryList = [
+    {name: "Paper towel", quantity: 1, category: "Toilet"},
+    {name: "Tomatoes", quantity: 3, category: "Food"},
+    {name: "Ramen noodles", quantity: 6, category: "Food"}
+];
+
+//convert array object to strings and locally store
+localStorage.setItem("groceryList", JSON.stringify(groceryList));
+
+//convert back to JSON
+const stored = localStorage.getItem("groceryList");
+const j = JSON.parse(stored);
+
+console.log(j[1].name); //access the array obj

@@ -1,0 +1,26 @@
+/*
+Event delation
+JavaScript event delegation is a simple technique by which you add a single event handler to a parent element in order to avoid having to add event handlers to multiple child elements.
+
+*/
+//query the dom
+const ul = document.querySelector("ul");
+const button = document.querySelector("button");
+
+//create new element event
+button.addEventListener("click", function(){ 
+    const li = document.createElement("li");
+    const r = prompt("What's the name of the new element?");
+    li.textContent = r;
+    ul.prepend(li);
+});
+
+//add event in ul (which is the parent element)
+ul.addEventListener("click", function(e){
+    console.log("event in UL");
+    console.log(e);
+    console.log(e.target);
+    if (e.target.tagName === "LI") {
+        e.target.remove();
+    }
+});
