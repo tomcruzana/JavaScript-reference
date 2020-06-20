@@ -1,0 +1,15 @@
+class Messages{
+  constructor(messeges){
+    this.messeges = messeges;
+  }
+
+  checkMessages(){
+    return (this.messeges >= 0) && this.messeges; //The statement on the left gets evaluated if true and whatever is on the right is executed
+  }
+
+}
+
+let m = new Messages(23);
+
+
+console.log("You have " + m.checkMessages() + " messeges.")
