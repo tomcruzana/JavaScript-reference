@@ -1,0 +1,14 @@
+//delete a specific array using filter
+
+var notes = [{
+  title: "The Owl and the Pussy Cat",
+  author: "Jame Reid"
+},
+{
+  title: "Dick in a Box",
+  author: "The lonley island"
+}];
+const title = "Dick in a Box";
+const filtered = notes.filter(n => n.title !== title);
+
+console.log(filtered)
