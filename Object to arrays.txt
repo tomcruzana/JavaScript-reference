@@ -1,0 +1,9 @@
+const objectToArray = obj => {
+    return [
+      Object.keys(obj), //for keys
+      Object.values(obj), //for values
+      Object.entries(obj) //for both keys and values
+    ]
+  };
+
+console.log(objectToArray({"name": "Tony", "age" : "12"}));
